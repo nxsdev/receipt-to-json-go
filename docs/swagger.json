@@ -1,0 +1,41 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Receipt to JSON API",
+        "contact": {},
+        "version": "0.1"
+    },
+    "host": "localhost:8080",
+    "paths": {
+        "/api/receipt/process": {
+            "post": {
+                "description": "Converts receipt information from an image URL to JSON",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Process receipt from image URL",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "URL of the image containing the receipt",
+                        "name": "image_url",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

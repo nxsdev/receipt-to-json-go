@@ -1,0 +1,27 @@
+host: localhost:8080
+info:
+  contact: {}
+  title: Receipt to JSON API
+  version: "0.1"
+paths:
+  /api/receipt/process:
+    post:
+      consumes:
+      - application/json
+      description: Converts receipt information from an image URL to JSON
+      parameters:
+      - description: URL of the image containing the receipt
+        in: query
+        name: image_url
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Process receipt from image URL
+swagger: "2.0"
